@@ -13,7 +13,6 @@
     <div>
         Time: {{data.time}}
     </div>
-    <div>
-        Address: {{data.location.address}}, {{data.location.city}} {{data.location.country}}
-    </div>
+    <locAddress [location]="data.location"></locAddress>
+   
 </div>
