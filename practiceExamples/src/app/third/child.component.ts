@@ -1,24 +1,25 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
-import { Output } from "@angular/core";
+import { Component, OnInit, EventEmitter, Output } from "@angular/core";
 @Component({
-    "selector": "child",
-    "template": `
+  selector: "child",
+  template: `
         <div>Child Counter {{counter}}</div>
         <button (click)="onClick()">Click me</button>
     `
 })
 export class ChildComponent implements OnInit {
-    counter = 0;
+  counter = 0;
+  counterInterval: any;
 
-    @Output() clickMe = new EventEmitter()
+  @Output() clickMe: EventEmitter<number> = new EventEmitter<number>();
 
-    ngOnInit(): void {
-        setInterval(() => {
-            this.counter++
-        }, 1000)
-    }
+  ngOnInit(): void {
+    this.counterInterval = setInterval(() => {
+      this.counter++;
+    }, 1000);
+  }
 
-    onClick(){
-        this.clickMe.emit(this.counter);
-    }
+  onClick() {
+    clearInterval(this.counterInterval);
+    this.clickMe.emit(this.counter);
+  }
 }
