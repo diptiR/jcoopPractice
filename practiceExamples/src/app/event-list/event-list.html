@@ -1,15 +1,17 @@
-<table cell-padding="10">
-    <thead>
-        <th>Event</th>
-        <th>Date</th>
-        <th>Time</th>
-        <th>Address</th>
-    </thead>
-    <tr *ngFor="let event of events">
-        <td>{{event?.name}}</td>
-        <td>{{event?.date}}</td>
-        <td>{{event?.time}}</td>
-        <td *ngIf="event.location">{{event?.location.address}}, {{event?.location?.city}}, {{event?.location?.country}}</td>
-        <td *ngIf="event.onlineUrl">{{event.onlineUrl}}</td>
-    </tr>
-</table>
+<ul cell-padding="10">
+  <li class="block" *ngFor="let event of events">
+    <div [ngSwitch]="event.format">
+      <div *ngSwitchCase="'Online'">Online</div>
+      <div *ngSwitchCase="'InPerson'">In Person</div>
+      <div *ngSwitchDefault>TBD</div>
+    </div>
+    <span>{{ event?.name }}</span>
+    <span>{{ event?.date }}</span>
+    <span>{{ event?.time }}</span>
+    <span *ngIf="event.location"
+      >{{ event?.location.address }}, {{ event?.location?.city }},
+      {{ event?.location?.country }}</span
+    >
+    <span *ngIf="event.onlineUrl">{{ event.onlineUrl }}</span>
+  </li>
+</ul>
