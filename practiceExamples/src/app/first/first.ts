@@ -2,7 +2,8 @@ import { Component } from "@angular/core";
 
 @Component({
     "selector": "home",
-    "templateUrl": "./first.html"
+    "templateUrl": "./first.html",
+    "styles":[".block{display:block;padding-bottom:10px}"]
 })
 
 export class HomeComponent {
