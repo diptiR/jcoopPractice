@@ -5,7 +5,7 @@
       <div *ngSwitchCase="'InPerson'">In Person</div>
       <div *ngSwitchDefault>TBD</div>
     </div>
-    <span>{{ event?.name }}</span>
+    <span [ngClass]="getTitle(event.format)">{{ event?.name }}</span>
     <span>{{ event?.date }}</span>
     <span>{{ event?.time }}</span>
     <span *ngIf="event.location"
