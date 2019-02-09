@@ -2,9 +2,9 @@ import { Component, OnInit, EventEmitter, Output } from "@angular/core";
 @Component({
   selector: "child",
   template: `
-        <div>Child Counter {{counter}}</div>
-        <button (click)="onClick()">Click me</button>
-    `
+    <div>Child Counter {{ counter }}</div>
+    <button (click)="onClick()">Click me</button>
+  `
 })
 export class ChildComponent implements OnInit {
   counter = 0;
@@ -18,8 +18,11 @@ export class ChildComponent implements OnInit {
     }, 1000);
   }
 
-  onClick() {
+  stopTimer() {
     clearInterval(this.counterInterval);
+  }
+
+  onClick() {
     this.clickMe.emit(this.counter);
   }
 }
