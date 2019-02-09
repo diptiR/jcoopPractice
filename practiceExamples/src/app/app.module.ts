@@ -7,6 +7,7 @@ import { HomeComponent } from './first/first';
 import { AddressComponent } from "./first/address.component";
 import { ChildComponent } from "./third/child.component";
 import { ParentComponent } from "./third/parent.component";
+import { EventListComponent } from './event-list/event-list.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ParentComponent } from "./third/parent.component";
     HomeComponent,
     AddressComponent,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
+    EventListComponent
   ],
   imports: [
     BrowserModule,
