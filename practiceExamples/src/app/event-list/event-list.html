@@ -5,7 +5,7 @@
       <div *ngSwitchCase="'InPerson'">In Person</div>
       <div *ngSwitchDefault>TBD</div>
     </div>
-    <span [ngClass]="getTitle(event.format)">{{ event?.name }}</span>
+    <a [routerLink]="['events',event.id]" [ngClass]="getTitle(event.format)">{{ event?.name }}</a>
     <span>{{ event?.date }}</span>
     <span>{{ event?.time }}</span>
     <span *ngIf="event.location"
